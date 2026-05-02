@@ -1,0 +1,49 @@
+{
+  "pytorch_float32_kb": 177.0,
+  "onnx_float32_kb": 152.4,
+  "quantized_int8_kb": 187.8,
+  "onnx_latency_ms": {
+    "1": {
+      "mean_ms": 0.4551,
+      "median_ms": 0.5134,
+      "p95_ms": 0.6098,
+      "p99_ms": 0.6829,
+      "throughput_sps": 2197.0
+    },
+    "8": {
+      "mean_ms": 0.4261,
+      "median_ms": 0.4152,
+      "p95_ms": 0.4871,
+      "p99_ms": 0.6827,
+      "throughput_sps": 18775.0
+    },
+    "32": {
+      "mean_ms": 0.8306,
+      "median_ms": 0.7679,
+      "p95_ms": 1.2014,
+      "p99_ms": 1.5841,
+      "throughput_sps": 38529.0
+    },
+    "128": {
+      "mean_ms": 2.1505,
+      "median_ms": 2.1218,
+      "p95_ms": 2.5631,
+      "p99_ms": 3.0212,
+      "throughput_sps": 59521.0
+    }
+  },
+  "quantized_latency_ms": 0.8575,
+  "onnx_validation": {
+    "max_diff": 0.00012207,
+    "prediction_match": "500/500"
+  },
+  "quantized_validation": {
+    "prediction_match": "200/200",
+    "agreement_pct": 100.0
+  },
+  "base_paper_size_kb": 1082.0,
+  "files_produced": [
+    "lidst_model.onnx",
+    "lidst_quantized.pt"
+  ]
+}

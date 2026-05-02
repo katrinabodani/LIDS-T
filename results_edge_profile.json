@@ -1,0 +1,96 @@
+{
+  "experiment1_ram": {
+    "mean_kb": 3.8359375,
+    "max_kb": 3.8359375,
+    "min_kb": 3.8359375,
+    "std_kb": 0.0
+  },
+  "experiment2_latency": {
+    "cpu_by_batch": {
+      "1": {
+        "mean_ms": 0.7472,
+        "median_ms": 0.6842,
+        "p95_ms": 1.3282,
+        "p99_ms": 1.4628,
+        "std_ms": 0.2102,
+        "throughput_sps": 1338.0
+      },
+      "8": {
+        "mean_ms": 0.7374,
+        "median_ms": 0.704,
+        "p95_ms": 0.8924,
+        "p99_ms": 1.0533,
+        "std_ms": 0.0824,
+        "throughput_sps": 10849.0
+      },
+      "32": {
+        "mean_ms": 0.9427,
+        "median_ms": 0.9023,
+        "p95_ms": 1.1811,
+        "p99_ms": 1.9971,
+        "std_ms": 0.3139,
+        "throughput_sps": 33943.0
+      },
+      "128": {
+        "mean_ms": 1.0625,
+        "median_ms": 1.0221,
+        "p95_ms": 1.3461,
+        "p99_ms": 1.9928,
+        "std_ms": 0.2023,
+        "throughput_sps": 120474.0
+      },
+      "512": {
+        "mean_ms": 1.5601,
+        "median_ms": 1.5324,
+        "p95_ms": 1.8243,
+        "p99_ms": 1.9692,
+        "std_ms": 0.153,
+        "throughput_sps": 328175.0
+      }
+    },
+    "single_cpu_ms": 0.7472,
+    "single_gpu_ms": 1.0680135992588475,
+    "requirement_met": true
+  },
+  "experiment3_flops": {
+    "lidst_flops": 28732,
+    "lidst_mflops": 0.0287,
+    "base_flops_est": 2100000,
+    "base_mflops_est": 2.1,
+    "flops_reduction_pct": 98.6
+  },
+  "deployment_matrix": [
+    {
+      "tier": "Cloud Server",
+      "lidst": "\u2705 DEPLOYABLE",
+      "base": "\u2705 DEPLOYABLE"
+    },
+    {
+      "tier": "Edge Gateway",
+      "lidst": "\u2705 DEPLOYABLE",
+      "base": "\u2705 DEPLOYABLE"
+    },
+    {
+      "tier": "IoT Gateway",
+      "lidst": "\u2705 DEPLOYABLE",
+      "base": "\u2705 DEPLOYABLE"
+    },
+    {
+      "tier": "Embedded MCU",
+      "lidst": "\u2705 DEPLOYABLE",
+      "base": "\u274c NOT DEPLOYABLE"
+    }
+  ],
+  "summary": {
+    "total_params": 45320,
+    "model_size_kb": 177.0,
+    "param_reduction": 83.2,
+    "peak_ram_kb": 3.8,
+    "cpu_latency_ms": 0.7472,
+    "gpu_latency_ms": 1.0680135992588475,
+    "accuracy": 0.9671,
+    "base_accuracy": 0.93,
+    "task": "multiclass_10_class",
+    "base_task": "binary"
+  }
+}

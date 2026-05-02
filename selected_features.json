@@ -1,0 +1,22 @@
+[
+  "state",
+  "dttl",
+  "sttl",
+  "ct_dst_src_ltm",
+  "ct_dst_sport_ltm",
+  "ct_src_dport_ltm",
+  "ct_state_ttl",
+  "smeansz",
+  "dmeansz",
+  "synack",
+  "Dintpkt",
+  "ct_srv_dst",
+  "Sload",
+  "sbytes",
+  "dbytes",
+  "ct_srv_src",
+  "service",
+  "Dload",
+  "Sintpkt",
+  "Dpkts"
+]
