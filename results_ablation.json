@@ -1,0 +1,90 @@
+[
+  {
+    "tag": "Transformer Only",
+    "accuracy": 0.9685,
+    "weighted_p": 0.9822,
+    "weighted_r": 0.9685,
+    "weighted_f1": 0.9732,
+    "macro_f1": 0.5245,
+    "params": 39626,
+    "per_class_f1": {
+      "Analysis": 0.2013,
+      "Backdoor": 0.0802,
+      "DoS": 0.4496,
+      "Exploits": 0.5969,
+      "Fuzzers": 0.5265,
+      "Generic": 0.9864,
+      "Normal": 0.9917,
+      "Reconnaissance": 0.7866,
+      "Shellcode": 0.3608,
+      "Worms": 0.2652
+    },
+    "time_s": 3703.5
+  },
+  {
+    "tag": "CNN Only",
+    "accuracy": 0.9692,
+    "weighted_p": 0.9829,
+    "weighted_r": 0.9692,
+    "weighted_f1": 0.9737,
+    "macro_f1": 0.5388,
+    "params": 10502,
+    "per_class_f1": {
+      "Analysis": 0.185,
+      "Backdoor": 0.1447,
+      "DoS": 0.453,
+      "Exploits": 0.6085,
+      "Fuzzers": 0.533,
+      "Generic": 0.9866,
+      "Normal": 0.992,
+      "Reconnaissance": 0.7582,
+      "Shellcode": 0.4412,
+      "Worms": 0.2857
+    },
+    "time_s": 2923.8
+  },
+  {
+    "tag": "No Class Weights",
+    "accuracy": 0.9792,
+    "weighted_p": 0.979,
+    "weighted_r": 0.9792,
+    "weighted_f1": 0.9764,
+    "macro_f1": 0.507,
+    "params": 45320,
+    "per_class_f1": {
+      "Analysis": 0.0532,
+      "Backdoor": 0.0739,
+      "DoS": 0.0536,
+      "Exploits": 0.7134,
+      "Fuzzers": 0.5327,
+      "Generic": 0.9883,
+      "Normal": 0.9956,
+      "Reconnaissance": 0.819,
+      "Shellcode": 0.5221,
+      "Worms": 0.3182
+    },
+    "time_s": 4021.6
+  },
+  {
+    "tag": "Full LIDS-T",
+    "accuracy": 0.9671,
+    "weighted_p": 0.9824,
+    "weighted_r": 0.9671,
+    "weighted_f1": 0.9727,
+    "macro_f1": 0.4958,
+    "params": 45320,
+    "per_class_f1": {
+      "Analysis": 0.16,
+      "Backdoor": 0.11,
+      "DoS": 0.43,
+      "Exploits": 0.59,
+      "Fuzzers": 0.52,
+      "Generic": 0.99,
+      "Normal": 0.99,
+      "Reconnaissance": 0.74,
+      "Shellcode": 0.33,
+      "Worms": 0.11
+    },
+    "time_s": 0
+  }
+]
