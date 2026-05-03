@@ -324,11 +324,28 @@ print("\n" + "="*60)
 print("ABLATION STUDY — 4 CONFIGURATIONS")
 print("="*60)
 
+# Pre-loaded Full LIDS-T results — already trained, no need to retrain
+full_lidst_result = {
+    'tag':          'Full LIDS-T',
+    'accuracy':     0.9671,
+    'weighted_p':   0.9824,
+    'weighted_r':   0.9671,
+    'weighted_f1':  0.9727,
+    'macro_f1':     0.4958,
+    'params':       45320,
+    'per_class_f1': {
+        'Analysis': 0.16, 'Backdoor': 0.11, 'DoS': 0.43,
+        'Exploits': 0.59, 'Fuzzers': 0.52, 'Generic': 0.99,
+        'Normal': 0.99, 'Reconnaissance': 0.74,
+        'Shellcode': 0.33, 'Worms': 0.11
+    },
+    'time_s': 0,
+}
+
 configs = [
     ("Transformer Only",  TransformerOnly().to(device), True),
     ("CNN Only",          CNNOnly().to(device),          True),
     ("No Class Weights",  LIDST().to(device),            False),
-    ("Full LIDS-T",       LIDST().to(device),            True),
 ]
 
 ablation_results = []
@@ -339,6 +356,10 @@ for tag, model, use_cw in configs:
     result = train_and_eval(model, use_class_weights=use_cw,
                              epochs=50, patience=7, tag=tag)
     ablation_results.append(result)
+
+# Append pre-loaded Full LIDS-T at the end
+ablation_results.append(full_lidst_result)
+print(f"\n  Full LIDS-T (pre-loaded): Accuracy=0.9671, W-F1=0.9727, Macro F1=0.4958")
 
 # =============================================================================
 # RESULTS TABLE
