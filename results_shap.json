@@ -1,0 +1,280 @@
+{
+  "per_class_top5": {
+    "Analysis": {
+      "features": [
+        "spkts",
+        "dbytes",
+        "proto",
+        "sload",
+        "sbytes"
+      ],
+      "values": [
+        1.772514,
+        1.208683,
+        1.105992,
+        0.904535,
+        0.857056
+      ],
+      "indices": [
+        4,
+        7,
+        1,
+        11,
+        6
+      ]
+    },
+    "Backdoor": {
+      "features": [
+        "dpkts",
+        "dinpkt",
+        "spkts",
+        "service",
+        "dbytes"
+      ],
+      "values": [
+        1.391816,
+        1.374529,
+        1.310368,
+        1.187719,
+        0.822926
+      ],
+      "indices": [
+        5,
+        16,
+        4,
+        2,
+        7
+      ]
+    },
+    "DoS": {
+      "features": [
+        "sload",
+        "state",
+        "proto",
+        "dpkts",
+        "sinpkt"
+      ],
+      "values": [
+        0.694331,
+        0.577623,
+        0.448734,
+        0.406811,
+        0.381493
+      ],
+      "indices": [
+        11,
+        3,
+        1,
+        5,
+        15
+      ]
+    },
+    "Exploits": {
+      "features": [
+        "sload",
+        "service",
+        "state",
+        "proto",
+        "sinpkt"
+      ],
+      "values": [
+        0.426908,
+        0.382165,
+        0.360791,
+        0.346397,
+        0.327317
+      ],
+      "indices": [
+        11,
+        2,
+        3,
+        1,
+        15
+      ]
+    },
+    "Fuzzers": {
+      "features": [
+        "spkts",
+        "service",
+        "proto",
+        "dpkts",
+        "sload"
+      ],
+      "values": [
+        2.223837,
+        1.582308,
+        1.245382,
+        1.192771,
+        1.192518
+      ],
+      "indices": [
+        4,
+        2,
+        1,
+        5,
+        11
+      ]
+    },
+    "Generic": {
+      "features": [
+        "dinpkt",
+        "proto",
+        "sload",
+        "sbytes",
+        "dbytes"
+      ],
+      "values": [
+        2.287156,
+        1.879564,
+        1.583131,
+        1.369757,
+        1.243575
+      ],
+      "indices": [
+        16,
+        1,
+        11,
+        6,
+        7
+      ]
+    },
+    "Normal": {
+      "features": [
+        "sbytes",
+        "service",
+        "sload",
+        "spkts",
+        "dpkts"
+      ],
+      "values": [
+        3.068128,
+        3.053549,
+        1.858376,
+        1.552797,
+        1.513191
+      ],
+      "indices": [
+        6,
+        2,
+        11,
+        4,
+        5
+      ]
+    },
+    "Reconnaissance": {
+      "features": [
+        "dbytes",
+        "proto",
+        "dinpkt",
+        "state",
+        "sload"
+      ],
+      "values": [
+        1.425841,
+        1.186068,
+        1.015113,
+        0.817277,
+        0.685295
+      ],
+      "indices": [
+        7,
+        1,
+        16,
+        3,
+        11
+      ]
+    },
+    "Shellcode": {
+      "features": [
+        "dinpkt",
+        "sload",
+        "proto",
+        "dbytes",
+        "service"
+      ],
+      "values": [
+        5.254948,
+        3.764319,
+        3.648224,
+        2.726229,
+        2.561906
+      ],
+      "indices": [
+        16,
+        11,
+        1,
+        7,
+        2
+      ]
+    },
+    "Worms": {
+      "features": [
+        "dbytes",
+        "sload",
+        "proto",
+        "service",
+        "sbytes"
+      ],
+      "values": [
+        3.132789,
+        2.746739,
+        2.322339,
+        2.205431,
+        1.717416
+      ],
+      "indices": [
+        7,
+        11,
+        1,
+        2,
+        6
+      ]
+    }
+  },
+  "global_importance": {
+    "dur": 0.201908,
+    "proto": 1.403076,
+    "service": 1.333599,
+    "state": 0.826329,
+    "spkts": 1.197403,
+    "dpkts": 0.893144,
+    "sbytes": 1.060588,
+    "dbytes": 1.262677,
+    "rate": 0.402223,
+    "sttl": 0.414674,
+    "dttl": 0.101633,
+    "sload": 1.459987,
+    "dload": 0.255909,
+    "sloss": 0.154472,
+    "dloss": 0.148107,
+    "sinpkt": 0.729951,
+    "dinpkt": 1.44169,
+    "sjit": 0.07214,
+    "djit": 0.068788,
+    "swin": 0.24767
+  },
+  "global_ranking": [
+    "sload",
+    "dinpkt",
+    "proto",
+    "service",
+    "dbytes",
+    "spkts",
+    "sbytes",
+    "dpkts",
+    "state",
+    "sinpkt",
+    "sttl",
+    "rate",
+    "dload",
+    "swin",
+    "dur",
+    "sloss",
+    "dloss",
+    "dttl",
+    "sjit",
+    "djit"
+  ],
+  "n_background": 485,
+  "n_explained": 935
+}

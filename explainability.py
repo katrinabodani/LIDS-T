@@ -93,10 +93,9 @@ CONFIG = {
     'd_ff': 128, 'cnn_channels': 64, 'cnn_kernel': 3,
     'dropout': 0.0, 'hidden_units': 64, 'n_classes': 10,
 }
-N_FEATURES = 20
 
 # =============================================================================
-# STEP 1 — LOAD MODEL
+# STEP 1 — LOAD DATA
 # =============================================================================
 
 print("=" * 60)
@@ -126,9 +125,37 @@ with open('attack_class_names.json') as f:
 with open('feature_cols.json') as f:
     feature_names = json.load(f)
 
+if X_test.shape[1] != len(feature_names):
+    if len(feature_names) > X_test.shape[1]:
+        print(
+            f"WARNING: feature_cols.json contains {len(feature_names)} names, "
+            f"but X_test has {X_test.shape[1]} columns. Trimming to match."
+        )
+        feature_names = feature_names[:X_test.shape[1]]
+    else:
+        raise ValueError(
+            f"Mismatch between X_test columns ({X_test.shape[1]}) "
+            f"and feature name count ({len(feature_names)})."
+        )
+
+N_FEATURES = X_test.shape[1]
+
 print(f"Test set   : {X_test.shape}")
 print(f"Classes    : {class_names}")
 print(f"Features   : {feature_names}")
+
+# =============================================================================
+# STEP 2 — LOAD MODEL
+# =============================================================================
+
+device = torch.device('cpu')  # SHAP works best on CPU
+
+model = LIDST(N_FEATURES, **CONFIG)
+model.load_state_dict(
+    torch.load('lidst_best.pt', map_location='cpu')
+)
+model.eval()
+print(f"\nModel loaded: {sum(p.numel() for p in model.parameters()):,} params")
 
 # =============================================================================
 # STEP 3 — SAMPLE DATA FOR SHAP
@@ -170,11 +197,43 @@ print("This may take 2-5 minutes...")
 explainer   = shap.GradientExplainer(model, X_bg)
 shap_values = explainer.shap_values(X_exp)
 
-# shap_values: list of 10 arrays, each (n_explain, 20)
-# shap_values[i][j, k] = SHAP contribution of feature k
-#                         to predicting class i for sample j
-print(f"SHAP values computed: {len(shap_values)} classes x "
-      f"{shap_values[0].shape} per class")
+print("Raw SHAP output:", type(shap_values),
+      getattr(shap_values, 'shape', None),
+      f"list len={len(shap_values) if isinstance(shap_values, list) else 'N/A'}")
+
+# Normalize SHAP output to a list of per-class arrays with shape
+# (n_explain, n_features) for consistent downstream aggregation.
+if isinstance(shap_values, np.ndarray):
+    if shap_values.ndim == 3:
+        if shap_values.shape[0] == len(class_names):
+            shap_values = [shap_values[i] for i in range(shap_values.shape[0])]
+        elif shap_values.shape[2] == len(class_names):
+            shap_values = [shap_values[:, :, i] for i in range(shap_values.shape[2])]
+        elif shap_values.shape[1] == len(class_names):
+            shap_values = [shap_values[:, i, :] for i in range(shap_values.shape[1])]
+        else:
+            raise ValueError(
+                f"Unexpected SHAP array shape {shap_values.shape}; "
+                f"cannot infer class axis for {len(class_names)} classes"
+            )
+    else:
+        raise ValueError(
+            f"Unexpected SHAP ndarray with {shap_values.ndim} dims; "
+            "expected 3 dims for multiclass output"
+        )
+elif isinstance(shap_values, list):
+    if len(shap_values) == 1 and isinstance(shap_values[0], np.ndarray) and shap_values[0].ndim == 3:
+        if shap_values[0].shape[2] == len(class_names):
+            shap_values = [shap_values[0][:, :, i] for i in range(shap_values[0].shape[2])]
+        elif shap_values[0].shape[1] == len(class_names):
+            shap_values = [shap_values[0][:, i, :] for i in range(shap_values[0].shape[1])]
+        else:
+            raise ValueError(
+                f"Unexpected SHAP list-of-array shape {shap_values[0].shape}; "
+                f"cannot infer class axis for {len(class_names)} classes"
+            )
+
+print(f"SHAP values normalized: {len(shap_values)} classes x {shap_values[0].shape} per class")
 
 # =============================================================================
 # STEP 5 — PER-CLASS TOP FEATURES
