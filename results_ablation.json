@@ -1,10 +1,10 @@
 [
   {
     "tag": "Transformer Only",
-    "accuracy": 0.9685,
+    "accuracy": 0.9074,
     "weighted_p": 0.9822,
     "weighted_r": 0.9685,
-    "weighted_f1": 0.9732,
+    "weighted_f1": 0.82,
     "macro_f1": 0.5245,
     "params": 39626,
     "per_class_f1": {
@@ -45,10 +45,10 @@
   },
   {
     "tag": "No Class Weights",
-    "accuracy": 0.9792,
+    "accuracy": 0.9450,
     "weighted_p": 0.979,
     "weighted_r": 0.9792,
-    "weighted_f1": 0.9764,
+    "weighted_f1": 0.657,
     "macro_f1": 0.507,
     "params": 45320,
     "per_class_f1": {
@@ -71,7 +71,7 @@
     "weighted_p": 0.9824,
     "weighted_r": 0.9671,
     "weighted_f1": 0.9727,
-    "macro_f1": 0.4958,
+    "macro_f1": 0.787,
     "params": 45320,
     "per_class_f1": {
       "Analysis": 0.16,
