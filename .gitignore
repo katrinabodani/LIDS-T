@@ -6,16 +6,23 @@ __pycache__/
 venv/
 .env
 
-# Data & model artifacts (too large for git — download UNSW-NB15 separately)
+# --- Repo policy: track .py + .json only ---
+# CSV datasets, model weights, plots, and PDFs are generated locally.
+
+# Data & model artifacts (download UNSW-NB15 separately; run preprocess_full.py)
 *.csv
 *.pt
 *.pkl
 *.onnx
 *.data
 
-# Generated plots & reports (regenerate with plots.py / plots_dpi.py)
+# Generated outputs — NOT committed (use plots.py to regenerate)
 *.png
 *.pdf
+*.jpg
+*.jpeg
+*.svg
+*.gif
 
 # IDE
 .vscode/
