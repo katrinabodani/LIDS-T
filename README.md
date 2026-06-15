@@ -10,8 +10,8 @@ This repository extends the binary Transformer baseline published in *Scientific
 
 | Author | Affiliation |
 |--------|-------------|
-| **Katrina Bodani** | Information Security — University of L'Aquila |
-| **Tayyab Rehman** | Information Security — University of L'Aquila |
+| **Katrina Bodani** | FAST NUCES, Islamabad |
+| **Tayyab Rehman** | University of L'Aquila |
 
 ---
 
@@ -422,10 +422,11 @@ python plots.py
 
 ```bibtex
 @article{lids_t_2025,
-  author  = {Bodani, Katrina and Rehman, Tayyab},
-  title   = {LIDS-T: Lightweight IoT Intrusion Detection Transformer},
-  year    = {2025},
-  note    = {Multiclass extension of transformer-based NIDS}
+  author       = {Bodani, Katrina and Rehman, Tayyab},
+  title        = {LIDS-T: Lightweight IoT Intrusion Detection Transformer},
+  year         = {2025},
+  institution  = {FAST NUCES Islamabad},
+  note         = {Multiclass extension of transformer-based NIDS}
 }
 
 @article{base_paper_2025,
