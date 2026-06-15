@@ -1,10 +1,30 @@
-__pycache__
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Data & model artifacts (too large for git — download UNSW-NB15 separately)
 *.csv
 *.pt
 *.pkl
 *.onnx
 *.data
+
+# Generated plots & reports (regenerate with plots.py / plots_dpi.py)
+*.png
+*.pdf
+
+# IDE
+.vscode/
+.idea/
+
+# Local backups
+_local_backup/
+
+# Temp scripts
 temp_auto_push.bat
 temp_interactive_push.bat
-.gitignore
 branch_structure.json
